@@ -1,0 +1,4 @@
+Cohen's Kappa (pysentimiento vs cardiffnlp): 0.6356
+Kappa interpretation: sustancial (aceptable para TFM)
+N tweets evaluated: 6437
+Seed: 42

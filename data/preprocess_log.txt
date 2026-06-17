@@ -1,0 +1,12 @@
+Preprocessing completed
+Total records: 6437
+Sample size: 500
+Random seed: 42
+Lemmatization: False
+Emoji strategy: map
+Hashtag strategy: normalize
+Label strategy: both
+
+Label strategy: both
+Cohen's Kappa (pysentimiento vs cardiffnlp): 0.6356
+Kappa interpretation: sustancial (aceptable para TFM)

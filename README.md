@@ -12,7 +12,7 @@
 
 - **`data/`**  
   Carpeta local para datos — **no incluida en el repositorio**.  
-  Los datos procesados están disponibles en Zenodo: [DOI pendiente]  
+  Los datos procesados están disponibles en Zenodo: [[DOI pendiente](https://doi.org/10.5281/zenodo.20726879)]  
   - `corpus_canonical_v1.jsonl` — corpus en español tras ingestión y anonimización  
   - `corpus_processed_v1.jsonl` — corpus tras preprocesado completo  
   - `corpus_labeled_v1.jsonl` — corpus con etiquetas de sentimiento  
@@ -61,7 +61,7 @@ python -m spacy download es_core_news_sm
 ```
 
 ### 2. Datos
-Descarga el corpus desde Zenodo [DOI pendiente] y coloca los archivos en `data/`.
+Descarga el corpus desde Zenodo [https://doi.org/10.5281/zenodo.20726879] y coloca los archivos en `data/`.
 
 ### 3. Ejecutar en orden
 ```bash

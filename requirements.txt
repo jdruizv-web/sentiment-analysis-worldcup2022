@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+spacy
+emoji
+pyyaml
+transformers
+sentence-transformers
+torch
+joblib
+matplotlib
+seaborn
+missingno

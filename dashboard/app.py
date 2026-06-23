@@ -145,6 +145,16 @@ st.markdown(f"""
 
     /* ── Prevenir que los SVG se expandan de forma inesperada ── */
     svg {{ width: auto !important; height: auto !important; }}
+    
+    /* ── Evita que las etiquetas del multiselect se corten ── */
+    section[data-testid="stSidebar"] span[data-baseweb="tag"] {{
+        max-width: 100% !important;
+        overflow: visible !important;
+    }}
+    section[data-testid="stSidebar"] .stMultiSelect [data-baseweb="select"] {{
+        min-width: 0 !important;
+    }}
+    
 </style>
 """, unsafe_allow_html=True)
 
@@ -252,7 +262,7 @@ st.markdown(f"""
         </h1>
         <p style='color:{COLOR_ARENA_OSC}; font-size:14px; margin: 6px 0 0 0;'>
             TFM · Juan Diego Ruiz Valverde · UNIR 2026 &nbsp;·&nbsp;
-            Datos: 11 dic 2022 · {len(df_f):,} tweets filtrados de {len(df):,} totales
+            Datos: 11 dic 2022 · {len(df_f):,} tweets filtrados en el idioma español
         </p>
     </div>
 """, unsafe_allow_html=True)

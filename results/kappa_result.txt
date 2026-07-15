@@ -1,0 +1,27 @@
+=== VALIDACIÓN DE ETIQUETADO AUTOMÁTICO ===
+
+Corpus completo (6437 tweets):
+  Kappa inter-sistema (pysentimiento vs cardiffnlp): 0.6356
+  Interpretación: Acuerdo sustancial (Landis & Koch, 1977)
+
+Muestra de validación manual (150 tweets estratificados, seed=42):
+  Kappa humano vs pysentimiento:    0.4291  (acuerdo moderado)
+  Kappa humano vs cardiffnlp:       0.3690  (acuerdo regular)
+  Kappa inter-sistema en muestra:   0.7214  (acuerdo sustancial)
+  Acuerdo simple humano vs pysentimiento: 68.7% (103/150 tweets)
+
+Distribución muestra (estratificada proporcional):
+  negativo:  85 tweets (56.7%)
+  neutro:    49 tweets (32.8%)
+  positivo:  16 tweets (10.6%)
+
+Notas:
+  - El anotador humano es Juan Diego Ruiz Valverde (autor del TFM)
+  - Muestra seleccionada con random_state=42 para reproducibilidad
+  - El archivo label_validation_sample.csv contiene los 150 tweets
+    con etiquetas automáticas, manuales y columnas de acuerdo
+  - Las discrepancias más frecuentes ocurren en la frontera negativo/neutro,
+    consistente con la dificultad inherente de la tarea en texto informal
+
+Referencia: Landis, J.R. & Koch, G.G. (1977). The measurement of observer
+agreement for categorical data. Biometrics, 33(1), 159-174.

@@ -1,0 +1,4 @@
+Embeddings training completed
+Models: LogisticRegression, SVM
+Embeddings: BETO, Sentence-Transformers
+Seed: 42

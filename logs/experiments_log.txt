@@ -1,0 +1,4 @@
+Baselines training completed
+Models: NaiveBayes, LogisticRegression, SVM
+Vectorizer: TF-IDF (max_features=5000)
+Seed: 42

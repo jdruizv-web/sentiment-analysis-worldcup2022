@@ -1,0 +1,34 @@
+# preprocess_config.yml
+# Configuración del pipeline de preprocesamiento + etiquetado
+# Todos los scripts leen este archivo; cambiar aquí afecta todo el pipeline.
+
+# ── Parámetros generales ──────────────────────────────────────────────────────
+sample_size: 500          # Registros en la muestra aleatoria (sample_processed.csv)
+seed: 42                  # Semilla para reproducibilidad (muestreo, modelos, splits)
+lemmatize: false          # true  = usar lemas (recomendado para TF-IDF + SVM/NB)
+                          # false = tokens originales (recomendado para pysentimiento y BETO)
+emoji_strategy: "map"     # "map"    = sustituir emoji por palabra (feliz, triste, etc.)
+                          # "remove" = eliminar emojis
+hashtag_strategy: "normalize"  # "normalize" = #Mundial → mundial
+                               # "remove"    = eliminar hashtags
+
+# ── Etiquetado de sentimiento ─────────────────────────────────────────────────
+# Controla qué modelo(s) se usan para generar la columna label_sentiment.
+#
+# Opciones:
+#   "pysentimiento"  → RoBERTa entrenado en >40M tweets en español (Pérez et al., 2021)
+#                      Rápido, preciso en español, recomendado como anotador principal
+#   "cardiffnlp"     → XLM-RoBERTa multilingüe entrenado en tweets (Barbieri et al., 2020)
+#                      Primer descarga ~500 MB; útil como segundo anotador
+#   "both"           → Corre ambos modelos y calcula Cohen's Kappa entre ellos
+#                      RECOMENDADO para TFM: valida la calidad del etiquetado automático
+#   "none"           → Salta el etiquetado (útil para pruebas rápidas del preprocesado)
+#
+label_strategy: "both"
+
+# Tamaño de la muestra de validación manual (data/label_validation_sample.csv)
+# Esta muestra se anota manualmente para calcular acuerdo inter-anotador humano vs. automático
+label_validation_sample: 150
+
+# Archivo de salida del corpus etiquetado
+label_output: "data/corpus_labeled_v1.jsonl"

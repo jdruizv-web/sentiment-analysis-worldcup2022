@@ -112,7 +112,7 @@ models = {
 }
 
 results = []  # Lista para guardar métricas de todos los modelos
-os.makedirs("data/models_embeddings", exist_ok=True)  # Crear carpeta de modelos si no existe
+os.makedirs("models/models_embeddings", exist_ok=True)  # Crear carpeta de modelos si no existe
 
 # ============================================================
 # 5. Entrenamos y evaluamos con BETO
@@ -135,7 +135,7 @@ for name, model in models.items():                 # Iterar sobre Logistic y SVM
     })
 
     # Guardamosr modelo entrenado en archivo .pkl
-    joblib.dump(model, f"data/models_embeddings/{name}_BETO.pkl")
+    joblib.dump(model, f"models/models_embeddings/{name}_BETO.pkl")
     print(f"✅ {name} con BETO entrenado y guardado.")
 
 # ============================================================
@@ -159,20 +159,20 @@ for name, model in models.items():             # Iterar sobre Logistic y SVM
     })
 
     # Guardamos modelo entrenado en archivo .pkl
-    joblib.dump(model, f"data/models_embeddings/{name}_ST.pkl")
+    joblib.dump(model, f"models/models_embeddings/{name}_ST.pkl")
     print(f"✅ {name} con ST entrenado y guardado.")
 # ============================================================
 # 7. Guardamos resultados en CSV
 print("🔄 Guardando métricas...")
-pd.DataFrame(results).to_csv("data/results_embeddings.csv", index=False)  # Exportar métricas
-print("✅ Métricas guardadas en data/results_embeddings.csv")
+pd.DataFrame(results).to_csv("results/results_embeddings.csv", index=False)  # Exportar métricas
+print("✅ Métricas guardadas en results/results_embeddings.csv")
 
 # ============================================================
 # 8. Guardamos log de experimento
 print("🔄 Guardando log de experimento...")
-with open("data/experiments_embeddings_log.txt", "w", encoding="utf-8") as log:
+with open("logs/experiments_embeddings_log.txt", "w", encoding="utf-8") as log:
     log.write("Embeddings training completed\n")  # Mensaje de finalización
     log.write("Models: LogisticRegression, SVM\n")  # Modelos usados
     log.write("Embeddings: BETO, Sentence-Transformers\n")  # Tipos de embeddings
     log.write("Seed: 42\n")  # Semilla para reproducibilidad
-print("✅ Log guardado en data/experiments_embeddings_log.txt")
+print("✅ Log guardado en logs/experiments_embeddings_log.txt")

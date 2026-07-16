@@ -65,7 +65,7 @@ models = {
 results = []                                     # Lista para guardar métricas
 
 # Crear carpeta dentro de data para guardar modelos entrenados
-os.makedirs("data/models_baselines", exist_ok=True)
+os.makedirs("models/models_baselines", exist_ok=True)
 
 # ============================================================
 # 5. Entrenamos y evaluamos cada modelo
@@ -83,22 +83,22 @@ for name, model in models.items():
         "f1": report["weighted avg"]["f1-score"]
     })
     
-    # Guardar modelo entrenado en disco dentro de data/models_baselines
-    joblib.dump(model, f"data/models_baselines/{name}.pkl")
+    # Guardar modelo entrenado en disco dentro de models/models_baselines
+    joblib.dump(model, f"models/models_baselines/{name}.pkl")
     print(f"✅ {name} entrenado y guardado.")
 
 # ============================================================
 # 6. Guardamos resultados
 print("🔄 Guardando métricas...")
-pd.DataFrame(results).to_csv("data/results_baselines.csv", index=False)  # Guardamos métricas en CSV
-print("✅ Métricas guardadas en data/results_baselines.csv")
+pd.DataFrame(results).to_csv("results/results_baselines.csv", index=False)  # Guardamos métricas en CSV
+print("✅ Métricas guardadas en results/results_baselines.csv")
 
 # ============================================================
 # 7. Guardamos el log de experimento
 print("🔄 Guardando log de experimento...")
-with open("data/experiments_log.txt", "w", encoding="utf-8") as log:
+with open("logs/experiments_log.txt", "w", encoding="utf-8") as log:
     log.write("Baselines training completed\n")
     log.write("Models: NaiveBayes, LogisticRegression, SVM\n")
     log.write("Vectorizer: TF-IDF (max_features=5000)\n")
     log.write("Seed: 42\n")
-print("✅ Log guardado en data/experiments_log.txt")
+print("✅ Log guardado en logs/experiments_log.txt")
